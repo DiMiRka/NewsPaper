@@ -10,4 +10,11 @@ Post
 <h1>{{ post.name|censor }}</h1>
 <h3>{{ post.time_in|date:'d M Y' }}</h3>
 <p>{{ post.text|censor }}</p>
+
+<form action="{% if post.article_or_news != 'AR' %} {{ post.id }}/news/update/ {% else %} {{ post.id }}/articles/update/ {% endif %}">
+    <button>Редактировать</button>
+</form>
+<form action="{% if post.article_or_news != 'AR' %} {{ post.id }}/news/delete/ {% else %} {{ post.id }}/articles/delete/ {% endif %}">
+    <button>Удалить</button>
+</form>
 {% endblock content %}
