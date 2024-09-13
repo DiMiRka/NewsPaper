@@ -3725,6 +3725,39 @@ textarea.form-control-lg {
   display: block;
 }
 
+.right {
+  text-align: right;
+}
+
+.dimir {
+  --bs-dimir-padding-x: 0;
+  --bs-dimir-padding-y: 0.5rem;
+  --bs-dimir-color: rgba(0, 0, 0, 0.55);
+  --bs-dimir-hover-color: rgba(0, 0, 0, 0.7);
+  --bs-dimir-disabled-color: rgba(0, 0, 0, 0.3);
+  --bs-dimir-active-color: rgba(0, 0, 0, 0.9);
+  --bs-dimir-brand-padding-y: 0.3125rem;
+  --bs-dimir-brand-margin-end: 1rem;
+  --bs-dimir-brand-font-size: 1.25rem;
+  --bs-dimir-brand-color: rgba(0, 0, 0, 0.9);
+  --bs-dimir-brand-hover-color: rgba(0, 0, 0, 0.9);
+  --bs-dimir-nav-link-padding-x: 0.5rem;
+  --bs-dimir-toggler-padding-y: 0.25rem;
+  --bs-dimir-toggler-padding-x: 0.75rem;
+  --bs-dimir-toggler-font-size: 1.25rem;
+  --bs-dimir-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  --bs-dimir-toggler-border-color: rgba(0, 0, 0, 0.1);
+  --bs-dimir-toggler-border-radius: 0.375rem;
+  --bs-dimir-toggler-focus-width: 0.25rem;
+  --bs-dimir-toggler-transition: box-shadow 0.15s ease-in-out;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--bs-navbar-padding-y) var(--bs-navbar-padding-x);
+}
+
 .navbar {
   --bs-navbar-padding-x: 0;
   --bs-navbar-padding-y: 0.5rem;

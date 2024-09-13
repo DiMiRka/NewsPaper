@@ -44,5 +44,10 @@ Posts
             <a href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_page }}</a>
         {% endif %}
     {% endif %}
-
+    <hr>
+    {% if request.user.is_authenticated %}
+        {% if is_not_authors %}
+            <button> <a href="http://127.0.0.1:8000/posts/upgrade/"> Хочу стать автором!</a> </button>
+        {% endif %}
+    {% endif %}
 {% endblock content %}
