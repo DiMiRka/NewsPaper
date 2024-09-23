@@ -19,6 +19,7 @@ Search posts
             <td>Заголовок</td>
             <td>Дата публикации</td>
             <td>Содержание</td>
+            <td>Категория</td>
             <td>Тип публикации</td>
         </tr>
         {% for post in posts %}
@@ -26,6 +27,11 @@ Search posts
             <td><a href="http://127.0.0.1:8000/posts/{{ post.id }}">{{ post.name|censor }}</a></td>
             <td>{{ post.time_in|date:'d M Y' }}</td>
             <td>{{ post.text|truncatechars:20|censor}}</td>
+            <td>
+                {% for category in post.category.all %}
+                    {{ category }} {% if not forloop.last %}, {% endif %}
+                {% endfor %}
+            </td>
             <td>{{ post.article_or_news|publication_type }} </td>
         </tr>
         {% endfor %}

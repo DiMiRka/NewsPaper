@@ -1,13 +1,14 @@
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.contrib.auth.models import Group
+from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
-from django.shortcuts import redirect
-from django.contrib.auth.models import Group
-from django.contrib.auth.decorators import login_required
 
-from .models import Post
+
 from .filters import PostFilter
 from .forms import PostForm
+from .models import Post, Category
 
 
 class PostsList(ListView):
@@ -73,3 +74,29 @@ def upgrade_me(request):
     if not request.user.groups.filter(name='authors').exists():
         premium_group.user_set.add(user)
     return redirect('/posts/')
+
+
+class SubscribersList(ListView):
+    model = Category
+    template_name = 'subscribers.html'
+    context_object_name = 'subscribers'
+
+    def post(self, request, *args, **kwargs):
+        category = self.request.POST.get('cat_name')
+        request.session['sub_category'] = category
+        return redirect('subscriber')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['user_subscribers'] = self.request.user.category.all().values_list('name', flat=True)
+        return context
+
+
+@login_required
+def subscribe_category(request):
+    user = request.user
+    subscriber = request.session['sub_category']
+    category = Category.objects.get(name=subscriber)
+    category.subscribers.add(user)
+    return redirect('subscribers')
+

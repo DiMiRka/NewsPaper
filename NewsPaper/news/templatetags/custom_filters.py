@@ -19,3 +19,4 @@ def publication_type(value):
     else:
         text = 'Статья'
     return text
+

@@ -1,5 +1,5 @@
-from django.db import models
 from django.contrib.auth.models import User
+from django.db import models
 from django.urls import reverse
 
 
@@ -21,12 +21,22 @@ class Author(models.Model):
         self.rating = posts_rating * 3 + comments_rating + posts_comments_rating
         self.save()
 
+    def __str__(self):
+        return self.user.username
+
 
 class Category(models.Model):
     name = models.CharField(max_length=30, unique=True)
+    subscribers = models.ManyToManyField(User, through='SubscribersCategory', blank=True, null=True,
+                                         related_name='category')
 
     def __str__(self):
-        return self.name.title()
+        return self.name
+
+
+class SubscribersCategory(models.Model):
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
 class Post(models.Model):
@@ -41,8 +51,8 @@ class Post(models.Model):
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     time_in = models.DateField(auto_now_add=True)
     article_or_news = models.CharField(max_length=2, choices=POSITIONS, default=news)
-    category = models.ManyToManyField(Category, through='PostCategory')
-    name = models.CharField(max_length=140, default=article_or_news)
+    category = models.ManyToManyField(Category, through='PostCategory', blank=True, related_name='category')
+    name = models.CharField(max_length=140, default='name')
     text = models.TextField()
     rating = models.IntegerField(default=0)
 
@@ -58,7 +68,7 @@ class Post(models.Model):
         return f'{self.text[:124]}...'
 
     def __str__(self):
-        return f'{self.name.title()}: {self.rating}'
+        return f'{self.name.title()}'
 
     def get_absolute_url(self):
         return reverse('post_detail', args=[str(self.id)])

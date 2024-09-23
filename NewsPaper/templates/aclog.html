@@ -1,0 +1,26 @@
+{% extends 'flatpages/default.html' %}
+
+{% block content %}
+<h2>Страница авторизованного пользователя {{request.user.username}}</h2>
+<div>
+    <h6>Имя: {{ request.user.first_name }}</h6>
+    <h6>Фамилия: {{ request.user.last_name }}</h6>
+    <h6>Email: {{ request.user.email }}</h6>
+    {% if request.user.category.all %}
+        <h6>Вы подписаны на категории:
+            {% for category in  request.user.category.all %}
+            {{ category }} {% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        <button><a href="http://127.0.0.1:8000/posts/subscribers/">Управление подпиской</a></button>
+        </h6>
+    {% else %}
+        <h6>Вы не подписаны на рассылку
+        <button><a href="http://127.0.0.1:8000/posts/subscribers/">Управление подпиской</a></button>
+        </h6>
+    {% endif %}
+    {% if is_authors %}
+    <h6>Вы являетесь автором постов</h6>
+    {% endif %}
+</div>
+
+{% endblock %}

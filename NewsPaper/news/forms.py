@@ -1,10 +1,12 @@
-from django import forms
 from allauth.account.forms import SignupForm
+from django import forms
 from django.contrib.auth.models import Group
+
 from .models import Post
 
 
 class PostForm(forms.ModelForm):
+
     class Meta:
         model = Post
         fields = ['author', 'category', 'name', 'text']
