@@ -1,0 +1,14 @@
+2024-11-05 21:20:18,011 - WARNING - Not Found: /js/scripts.js - C:\Users\Dima\PycharmProjects\Django_NewsPaper_project\venv\Lib\site-packages\django\utils\log.py
+2024-11-05 21:20:18,011 - WARNING - "GET /js/scripts.js HTTP/1.1" 404 179 - C:\Users\Dima\PycharmProjects\Django_NewsPaper_project\venv\Lib\site-packages\django\core\servers\basehttp.py
+2024-11-05 21:20:19,614 - WARNING - Not Found: /posts/js/scripts.js - C:\Users\Dima\PycharmProjects\Django_NewsPaper_project\venv\Lib\site-packages\django\utils\log.py
+2024-11-05 21:20:19,614 - WARNING - "GET /posts/js/scripts.js HTTP/1.1" 404 179 - C:\Users\Dima\PycharmProjects\Django_NewsPaper_project\venv\Lib\site-packages\django\core\servers\basehttp.py
+2024-11-05 21:20:23,141 - WARNING - Not Found: /posts/js/scripts.js - C:\Users\Dima\PycharmProjects\Django_NewsPaper_project\venv\Lib\site-packages\django\utils\log.py
+2024-11-05 21:20:23,142 - WARNING - "GET /posts/js/scripts.js HTTP/1.1" 404 179 - C:\Users\Dima\PycharmProjects\Django_NewsPaper_project\venv\Lib\site-packages\django\core\servers\basehttp.py
+2024-11-05 21:20:24,282 - WARNING - Not Found: /posts/js/scripts.js - C:\Users\Dima\PycharmProjects\Django_NewsPaper_project\venv\Lib\site-packages\django\utils\log.py
+2024-11-05 21:20:24,283 - WARNING - "GET /posts/js/scripts.js HTTP/1.1" 404 179 - C:\Users\Dima\PycharmProjects\Django_NewsPaper_project\venv\Lib\site-packages\django\core\servers\basehttp.py
+2024-11-05 21:23:55,625    |    WARNING    |    Not Found: /posts/js/scripts.js    |    C:\Users\Dima\PycharmProjects\Django_NewsPaper_project\venv\Lib\site-packages\django\utils\log.py
+2024-11-05 21:23:55,626    |    WARNING    |    "GET /posts/js/scripts.js HTTP/1.1" 404 179    |    C:\Users\Dima\PycharmProjects\Django_NewsPaper_project\venv\Lib\site-packages\django\core\servers\basehttp.py
+2024-11-05 21:23:58,119    |    WARNING    |    Not Found: /posts/js/scripts.js    |    C:\Users\Dima\PycharmProjects\Django_NewsPaper_project\venv\Lib\site-packages\django\utils\log.py
+2024-11-05 21:23:58,120    |    WARNING    |    "GET /posts/js/scripts.js HTTP/1.1" 404 179    |    C:\Users\Dima\PycharmProjects\Django_NewsPaper_project\venv\Lib\site-packages\django\core\servers\basehttp.py
+2024-11-05 21:24:00,961    |    WARNING    |    Not Found: /posts/js/scripts.js    |    C:\Users\Dima\PycharmProjects\Django_NewsPaper_project\venv\Lib\site-packages\django\utils\log.py
+2024-11-05 21:24:00,961    |    WARNING    |    "GET /posts/js/scripts.js HTTP/1.1" 404 179    |    C:\Users\Dima\PycharmProjects\Django_NewsPaper_project\venv\Lib\site-packages\django\core\servers\basehttp.py

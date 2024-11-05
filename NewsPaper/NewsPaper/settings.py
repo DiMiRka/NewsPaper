@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-5*8%%%jcv+ce2ao(-d8qf0p1mt@70&x0iy#*!_i%)2ah!m%&$^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 # Application definition
 
@@ -147,11 +147,11 @@ LOGGING = {
     'disable_existing_loggers': False,
     'style': '{',
     'formatters': {
-        'debug': {'format': '%(asctime)s - %(levelname)s - %(message)s'},
-        'warning': {'format': '%(asctime)s - %(levelname)s - %(message)s - %(pathname)s'},
-        'error': {'format': '%(asctime)s - %(levelname)s - %(message)s - %(pathname)s - %(exc_info)s'},
-        'general': {'format': '%(asctime)s - %(levelname)s - %(module)s'},
-        'security': {'format': '%(asctime)s - %(levelname)s - %(module)s - %(message)s'},
+        'debug': {'format': '%(asctime)s    |    %(levelname)s    |    %(message)s'},
+        'warning': {'format': '%(asctime)s    |    %(levelname)s    |    %(message)s    |    %(pathname)s'},
+        'error': {'format': '%(asctime)s    |    %(levelname)s    |    %(message)s    |    %(pathname)s    |    %(exc_info)s'},
+        'general': {'format': '%(asctime)s    |    %(levelname)s    |    %(module)s'},
+        'security': {'format': '%(asctime)s    |    %(levelname)s    |    %(module)s    |    %(message)s'},
     },
     'filters': {
         'require_debug_true': {
@@ -193,6 +193,12 @@ LOGGING = {
             'filename': 'errors.log',
             'formatter': 'error'
         },
+        'warning': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': 'warning.log',
+            'formatter': 'warning'
+        },
         'security': {
             'level': 'INFO',
             'class': 'logging.FileHandler',
@@ -212,19 +218,19 @@ LOGGING = {
             'level': 'DEBUG',
         },
         'django.request': {
-            'handlers': ['errors', 'mail_admins'],
+            'handlers': ['errors', 'mail_admins', 'warning'],
             'propagate': True,
         },
         'django.server': {
-            'handlers': ['errors', 'mail_admins'],
+            'handlers': ['errors', 'mail_admins', 'warning'],
             'propagate': True,
         },
         'django.template': {
-            'handlers': ['errors'],
+            'handlers': ['errors', 'warning'],
             'propagate': True,
         },
         'django.db.backends': {
-            'handlers': ['errors'],
+            'handlers': ['errors', 'warning'],
             'propagate': True,
         },
         'django.security': {
