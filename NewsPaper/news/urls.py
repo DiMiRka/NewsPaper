@@ -1,10 +1,11 @@
 from django.contrib.auth.views import LogoutView
 from django.urls import path
+from django.views.decorators.cache import cache_page
 
 from .views import PostsList, PostDetail, CreatePost, UpdatePost, DeletePost, upgrade_me, SubscribersList, subscribe_category
 
 urlpatterns = [
-    path('', PostsList.as_view(), name='post_list'),
+    path('', cache_page(60)(PostsList.as_view()), name='post_list'),
     path('<int:pk>', PostDetail.as_view(), name='post_detail'),
     path('search/', PostsList.as_view(), name='post_search'),
     path('news/create/', CreatePost.as_view(), name='news_create'),

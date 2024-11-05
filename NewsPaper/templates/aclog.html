@@ -1,4 +1,5 @@
-{% extends 'flatpages/default.html' %}
+{% extends 'flatpages/default.html' %}\
+{% load cache %}
 
 {% block content %}
 <h2>Страница авторизованного пользователя {{request.user.username}}</h2>
@@ -11,11 +12,15 @@
             {% for category in  request.user.category.all %}
             {{ category }} {% if not forloop.last %}, {% endif %}
             {% endfor %}
+        {% cache 600 button %}
         <button><a href="http://127.0.0.1:8000/posts/subscribers/">Управление подпиской</a></button>
+        {% endcache %}
         </h6>
     {% else %}
         <h6>Вы не подписаны на рассылку
+        {% cache 600 button %}
         <button><a href="http://127.0.0.1:8000/posts/subscribers/">Управление подпиской</a></button>
+        {% endcache %}
         </h6>
     {% endif %}
     {% if is_authors %}
